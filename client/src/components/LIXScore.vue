@@ -5,7 +5,7 @@ const props = defineProps<{
     LIX: number
 }>()
 
-const difficulty = ref<string>('easy')
+const difficulty = ref<string>('none')
 
 const round = (num: number): number => {
     return Math.round((num + Number.EPSILON) * 10) / 10
@@ -20,9 +20,11 @@ const round = (num: number): number => {
  * @param LIX LIX score
  */
 const setDifficulty = (LIX: number): void => {
-    if(LIX < 30) {
+    if (LIX === 0) {
+        difficulty.value = 'none'
+    } else if (LIX > 0 && LIX < 30) {
         difficulty.value = 'easy'
-    } else if(LIX >= 30 && LIX <= 50) {
+    } else if (LIX >= 30 && LIX <= 50) {
         difficulty.value = 'normal'
     } else {
         difficulty.value = 'hard'
@@ -68,6 +70,10 @@ watch(() => props.LIX, (LIX: number): void => {
         margin: 0;
         font-size: 1.2rem;
         color: white;
+
+        &--none {
+            background-color: #9e9e9e;
+        }
 
         &--easy {
             background-color: #009b29;
