@@ -4,7 +4,8 @@ import TextArea from '@/components/TextArea.vue'
 
 <template>
   <main class="container">
-    <h1>Hello</h1>
+    <h1>Läsbarhetsindex (LIX)</h1>
+
     <TextArea />
   </main>
 </template>
