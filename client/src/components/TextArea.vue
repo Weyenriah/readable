@@ -57,10 +57,12 @@
                 class="copy__confirm"
                 :class="{ 'copy__confirm--active': copyConfirmed }"
             >
-                Yes!
+                <img src="../assets/svg/check-solid.svg">
             </div>
 
             <a class="copy__button" :class="{ 'copy__button--inactive': text === '' }" @click="copyText">
+                <img src="../assets/svg/copy-solid.svg">
+
                 Kopiera texten
             </a>
         </div>
@@ -92,25 +94,35 @@
     gap: .5rem;
 
     &__confirm {
-        display: none;
-        padding: 1rem 1.5rem;
-        border-radius: 30px;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        padding: .5rem .6rem;
+        border-radius: 100%;
         background-color: #009b29;
         color: white;
-        transition: background-color 0.2s ease-in-out;
+        transition: opacity 0.2s ease-in-out;
 
         &--active {
-            display: block;
+            opacity: 1;
+            display: flex;
+            transition: opacity 0.2s ease-in-out;
+        }
+
+        img {
+            width: 1.2rem;
         }
     }
 
     &__button {
-        display: block;
+        display: flex;
+        align-items: center;
+        gap: .5rem;
         padding: 1rem 1.5rem;
         border-radius: 30px;
         background-color: #000;
         color: white;
-        transition: background-color 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
 
         &:hover {
             cursor: pointer;
