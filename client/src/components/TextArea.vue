@@ -8,6 +8,8 @@
 
     /**
      * Calculate LIX score.
+     *
+     * LIX = (number of words / number of sentences) + ((number of long words * 100) / number of words)
      */
     const calculateLIX = (): void => {
         // List of sentences
@@ -68,10 +70,11 @@
 <style lang="scss" scoped>
 .textarea {
     width: 100%;
-    height: 100%;
+    height: 70vh;
     resize: none;
     border: none;
     outline: none;
+    overflow-y: scroll;
     font-size: 1.5rem;
     font-family: 'Roboto', sans-serif;
     padding: 2rem;
