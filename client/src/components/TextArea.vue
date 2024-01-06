@@ -12,6 +12,12 @@
      * LIX = (number of words / number of sentences) + ((number of long words * 100) / number of words)
      */
     const calculateLIX = (): void => {
+        // Reset LIX if text is empty
+        if(text.value === '') {
+            LIX.value = 0
+            return
+        }
+
         // List of sentences
         const sentences: Array<string> = text.value.split(/[.!?]/)
 
@@ -31,6 +37,9 @@
         LIX.value = wordDifficulty + sentenceDifficulty
     }
 
+    /**
+     * Copy text to clipboard.
+     */
     const copyText = (): void => {
         navigator.clipboard.writeText(text.value)
         copyConfirmed.value = true
